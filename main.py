@@ -37,22 +37,24 @@ def health_check():
         "application": "KnowledgeMind AI"
     }
 
+
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
     try:
-        # Intialize Rag components
-        vector_store = load_vector_store()
-        llm = get_llm()
+        vector_store = app.state.vector_store
+        llm = app.state.llm
 
         answer = generate_answer(
             question=request.question,
             vector_store=vector_store,
             llm=llm
         )
+
         return ChatResponse(
             question=request.question,
             answer=answer
         )
+
     except Exception as e:
         print(f"Chat error: {e}")
 
