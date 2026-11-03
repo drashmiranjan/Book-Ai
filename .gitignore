@@ -9,6 +9,3 @@ __pycache__/
 venv/
 .venv/
 
-faiss_index/
-
-books/*.pdf
