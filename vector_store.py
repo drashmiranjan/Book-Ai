@@ -13,15 +13,6 @@ def get_embedding_model():
     return embeddings
 
 
-# def get_embedding_model():
-#     embeddings = HuggingFaceEmbeddings(
-#         model="sentence-transformers/all-MiniLM-L6-v2",
-#         model_kwargs={"backend": "onnx"},
-#         encode_kwargs={"normalize_embeddings": True}
-#     )
-#     return embeddings
-
-
 # Step2: Initialize  embedding chunks
 def get_document_chunks():
 
